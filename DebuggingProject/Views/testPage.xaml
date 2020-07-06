@@ -20,7 +20,7 @@
                                 <Entry Text="{Binding Quantity}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
                                 <Entry Text="{Binding UnitName}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
                                 <Entry Text="{Binding Comments}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-                                <!-- Assessment Menu Icon -->
+
                                 <Label Text="Clickable Label" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.btnPress, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
