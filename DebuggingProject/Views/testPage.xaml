@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:RecipeDatabaseXamarin.ViewModels"
+             x:Class="RecipeDatabaseXamarin.Views.testPage" x:Name="Page">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            <ListView x:Name="listView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding downloadedRecipeIngredients}">  <!--SelectedItem="{Binding SelectedItem}"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Entry Text="{Binding IngredientName}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                <Picker x:Name="pickerIngredientancestor" HorizontalOptions = "StartAndExpand" WidthRequest="100" ItemsSource="{Binding listIngredients, Source={RelativeSource AncestorType={x:Type viewModel:testPageViewModel}}}" SelectedItem="{Binding IngredientName, Mode=TwoWay}"/>
+                                <Entry Text="{Binding Quantity}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                <Entry Text="{Binding UnitName}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                <Entry Text="{Binding Comments}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                <!-- Assessment Menu Icon -->
+                                <Label Text="Clickable Label" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.btnPress, Source={x:Reference Page}}" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
